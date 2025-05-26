@@ -17,7 +17,6 @@ async def fetch_lead_communications(lead_id: Union[str, List[str]]) -> dict:
         communications_collection = db.get_db().communications
         summaries_collection = db.get_db().communication_summaries
         
-        print(communications_collection)
         # Convert single ID to list for uniform processing
         if isinstance(lead_id, str):
             lead_id = [lead_id]

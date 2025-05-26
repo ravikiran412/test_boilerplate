@@ -2,7 +2,7 @@ import asyncio
 from crews.tools.lead_data import fetch_lead_data
 from crews.tools.lead_communications import fetch_lead_communications
 from crews.tools.lead_activities import fetch_lead_activities
-from . import leadProcessImagecrew
+from . import leadProcessImagecrew, communicationAnalysisCrew
 from database import db
 import os
 
@@ -38,5 +38,10 @@ async def test_tools():
         await db.close_db()
 
 if __name__ == "__main__":
-    asyncio.run(test_tools())
+    # asyncio.run(test_tools())
     # print(leadProcessImagecrew.kickoff())
+    inputs = {
+        'commuication_id': '683406eff75abdca9e790d14'
+    }
+    result = communicationAnalysisCrew.kickoff(inputs)
+    print(result)
